@@ -1,12 +1,12 @@
 namespace Module.Models;
 
-public class PrivateModel<X>{
-        private X _value;
-        public void SetValue (X value){
+public class PrivateModel<T>{
+        private T _value;
+        public void SetValue (T value){
             _value = value;
         }
 
-        public X GetValue()
+        public T GetValue()
         {
             return _value;
         }

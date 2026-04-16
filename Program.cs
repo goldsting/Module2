@@ -15,5 +15,14 @@ class Program {
 
         var words = new List<string>{"яблоко","киви"};
         Swapper.PrintCollections(words);
+
+        int Maximum = Calculator.Max(20, 42);
+        Console.WriteLine ($"Максимум: {Maximum}");
+
+        string MaxString = Calculator.Max ("Апельсин", "Гуава");
+        Console.WriteLine($"Максимум:{MaxString}");
+
+        double Minimum = Calculator.Min(3.22, 1.337);
+        Console.WriteLine($"Минимум: {Minimum}");
     }
 }
