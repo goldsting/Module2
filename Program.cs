@@ -1,4 +1,5 @@
-﻿using Module.Models;
+﻿using Module.Controllers;
+using Module.Models;
 class Program {
     static void Main(){
         var floatnumber = new PrivateModel<float>();
@@ -24,5 +25,29 @@ class Program {
 
         double Minimum = Calculator.Min(3.22, 1.337);
         Console.WriteLine($"Минимум: {Minimum}");
+
+
+        static ResultContainer<Person> CreatePerson(string name, int age)
+        {
+            if (age < 0)
+                return Factory.CreateFailure<Person>("Возраст не может быть меньше 0");
+
+            var person = new Person { Name = name, Age = age };
+            return Factory.CreateSuccess(person);
+        }
+
+        var per1 = CreatePerson("Александра", 21);
+        var per2 = CreatePerson("Илья", -21);
+
+        PrintResult(per1);
+        PrintResult(per2);
+
+        static void PrintResult<T>(ResultContainer<T> result)
+        {
+            if (result.IsSuccess)
+                System.Console.WriteLine($"{result.Value}");
+            else 
+            System.Console.WriteLine($"Ошибка: {result.ErrorMessage}");
+        }
     }
 }
