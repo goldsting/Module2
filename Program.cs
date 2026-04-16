@@ -8,5 +8,12 @@ class Program {
         var boolHolder = new PrivateModel<bool>();
         boolHolder.SetValue(true);
         Console.WriteLine ($"Значение bool: {boolHolder.GetValue()}");
+
+        int x = 10, y = 15;
+        Swapper.Swap(ref x, ref y);
+        Console.WriteLine ($"x={x}, y={y}");
+
+        var words = new List<string>{"яблоко","киви"};
+        Swapper.PrintCollections(words);
     }
 }
